@@ -83,7 +83,7 @@ Manage Coupons
 
 <input hidden id="urlcouponadd" value="{!! url('admin/create-coupon');!!}">
  <input hidden id="urlcouponget" value="{!! url('admin/get-coupon');!!}">
-<input hidden id="urlcoupondel" value="{!! url('admin/deletecoupon');!!}">
+<input hidden id="urlcoupondel" value="{!! url('admin/delete-coupon');!!}">
 <input hidden id="urlcouponedit" value="{!! url('admin/editcoupon');!!}">
 
    <div class="col-md-12">
@@ -103,6 +103,7 @@ Manage Coupons
                     <th>Coupon  Name</th>
                     <th>Coupon Detail</th>
                     <th>Coupon Image</th>
+                    <th>Action</th>
 
                     </tr>
                   </thead>
@@ -114,6 +115,7 @@ Manage Coupons
                        <td>@{{coupon.coupon_detail}}</td>
                        
                        <td><img v-bind:src="`/assets/coupons/${coupon.coupon_image}`" height="50"  width="50"></td>
+                      <td><a href="javascript:void(0)" @click="deleteCoupon(coupon.id)"><i class="fa fa-fw fa-trash"></i></a> </td>
                       </tr>
 
 

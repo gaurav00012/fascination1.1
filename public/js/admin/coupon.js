@@ -14112,6 +14112,34 @@ var app = new Vue({
       __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(getAllCouponurl).then(function (response) {
         _this.allCoupon = response.data;
       }).catch(function (error) {});
+    },
+    deleteCoupon: function deleteCoupon(id) {
+      var _this = this;
+      var deleteCouponUrl = $('#urlcoupondel').val();
+      __WEBPACK_IMPORTED_MODULE_0_sweetalert___default()({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this Coupon!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true
+      }).then(function (willDelete) {
+        if (willDelete) {
+          __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(deleteCouponUrl + '/' + id).then(function (resp) {
+            var respnc = resp.data;
+            if (respnc == 'coupondeleted') {
+              //swal("Coupon deleted Successfully!", "", "success");
+              _this.getallCoupon();
+              __WEBPACK_IMPORTED_MODULE_0_sweetalert___default()("Coupon has been deleted!", {
+                icon: "success"
+              });
+            }
+          }).catch(function (resp) {
+            console.log(resp);
+          });
+        } else {
+          //swal("Your imaginary file is safe!");
+        }
+      });
     }
   },
   mounted: function mounted() {

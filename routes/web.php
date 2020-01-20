@@ -25,6 +25,7 @@ Route::get('admin/get-coupon','Admin\PromocodeController@getallCoupon');
 
 Route::get('admin/create-coupon','Admin\PromocodeController@create');
 Route::post('admin/create-coupon','Admin\PromocodeController@store');
+Route::get('admin/delete-coupon/{id}','Admin\PromocodeController@destroy');
 Route::post('admin/editshopkeeper/{id}','Admin\ShopkeeperController@update');
 Route::get('admin/deleteshopkeeper/{id}','Admin\ShopkeeperController@destroy');
 

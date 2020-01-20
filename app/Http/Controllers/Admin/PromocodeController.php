@@ -137,6 +137,14 @@ class PromocodeController extends Controller
     public function destroy($id)
     {
         //
+        $coupon = Coupon::find($id);
+        $filepath = 'assets/coupons/'.$coupon->coupon_image;
+        unlink($filepath);
+        if($coupon->delete())
+        {
+          return response()->json('coupondeleted');
+        }
+        
     }
 
      public function useCoupon(Request $request){

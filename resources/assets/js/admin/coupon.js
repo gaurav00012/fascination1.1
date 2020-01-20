@@ -65,7 +65,40 @@ const app = new Vue({
 
           });
     },
-    	 
+    	 deleteCoupon(id)
+      {
+        let _this = this;
+        let deleteCouponUrl = $('#urlcoupondel').val();
+        swal({
+          title: "Are you sure?",
+          text: "Once deleted, you will not be able to recover this Coupon!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            axios.get(deleteCouponUrl+'/'+id)
+            .then(function(resp){
+              let respnc = resp.data;
+              if(respnc == 'coupondeleted')
+              {
+                //swal("Coupon deleted Successfully!", "", "success");
+                  _this.getallCoupon();
+                  swal("Coupon has been deleted!", {
+                    icon: "success",
+                  });
+              }
+            }).
+            catch(function(resp){
+              console.log(resp);
+            })
+
+          } else {
+            //swal("Your imaginary file is safe!");
+          }
+        });
+      }
     	
       
 
