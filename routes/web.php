@@ -28,6 +28,10 @@ Route::post('admin/create-coupon','Admin\PromocodeController@store');
 Route::get('admin/delete-coupon/{id}','Admin\PromocodeController@destroy');
 Route::post('admin/editshopkeeper/{id}','Admin\ShopkeeperController@update');
 Route::get('admin/deleteshopkeeper/{id}','Admin\ShopkeeperController@destroy');
+Route::get('admin/manage-banner','Admin\BannerController@index');
+Route::get('admin/get-banner','Admin\BannerController@getallbanner');
+Route::post('admin/create-banner','Admin\BannerController@store');
+
 
 Auth::routes();
 

@@ -13,5 +13,6 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
 	.js('resources/assets/js/admin/shopkeeper.js', 'public/js/admin')	
-	.js('resources/assets/js/admin/coupon.js', 'public/js/admin')	
+	.js('resources/assets/js/admin/coupon.js', 'public/js/admin')
+	.js('resources/assets/js/admin/banner.js', 'public/js/admin')	
    .sass('resources/assets/sass/app.scss', 'public/css');
