@@ -94,4 +94,15 @@ class BannerController extends Controller
         
      
     }
+
+     public function destroy($id)
+    {
+         $banner = Banner::find($id);
+        $filepath = 'assets/banners/'.$banner->banner_url;
+        unlink($filepath);
+        if($banner->delete())
+        {
+          return response()->json('bannerdeleted');
+        }
+    }
 }       

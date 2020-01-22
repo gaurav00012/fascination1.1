@@ -62,10 +62,10 @@ const app = new Vue({
 
           });
     },
-       deleteCoupon(id)
+       deleteBanner(id)
       {
         let _this = this;
-        let deleteCouponUrl = $('#urlcoupondel').val();
+        let deleteBannerUrl = $('#urlbannerdel').val();
         swal({
           title: "Are you sure?",
           text: "Once deleted, you will not be able to recover this Coupon!",
@@ -75,14 +75,14 @@ const app = new Vue({
         })
         .then((willDelete) => {
           if (willDelete) {
-            axios.get(deleteCouponUrl+'/'+id)
+            axios.get(deleteBannerUrl+'/'+id)
             .then(function(resp){
               let respnc = resp.data;
-              if(respnc == 'coupondeleted')
+              if(respnc == 'bannerdeleted')
               {
                 //swal("Coupon deleted Successfully!", "", "success");
-                  _this.getallCoupon();
-                  swal("Coupon has been deleted!", {
+                  _this.getallBanner();
+                  swal("Banner has been deleted!", {
                     icon: "success",
                   });
               }

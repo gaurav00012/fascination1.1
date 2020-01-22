@@ -14111,9 +14111,9 @@ var app = new Vue({
         _this.allBanner = response.data;
       }).catch(function (error) {});
     },
-    deleteCoupon: function deleteCoupon(id) {
+    deleteBanner: function deleteBanner(id) {
       var _this = this;
-      var deleteCouponUrl = $('#urlcoupondel').val();
+      var deleteBannerUrl = $('#urlbannerdel').val();
       __WEBPACK_IMPORTED_MODULE_0_sweetalert___default()({
         title: "Are you sure?",
         text: "Once deleted, you will not be able to recover this Coupon!",
@@ -14122,12 +14122,12 @@ var app = new Vue({
         dangerMode: true
       }).then(function (willDelete) {
         if (willDelete) {
-          __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(deleteCouponUrl + '/' + id).then(function (resp) {
+          __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(deleteBannerUrl + '/' + id).then(function (resp) {
             var respnc = resp.data;
-            if (respnc == 'coupondeleted') {
+            if (respnc == 'bannerdeleted') {
               //swal("Coupon deleted Successfully!", "", "success");
-              _this.getallCoupon();
-              __WEBPACK_IMPORTED_MODULE_0_sweetalert___default()("Coupon has been deleted!", {
+              _this.getallBanner();
+              __WEBPACK_IMPORTED_MODULE_0_sweetalert___default()("Banner has been deleted!", {
                 icon: "success"
               });
             }
