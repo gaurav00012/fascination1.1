@@ -319,9 +319,9 @@
 <script  src="{{URL::asset('js/admin/shopkeeper.js')}}"></script>
 <script  src="{{URL::asset('js/admin/coupon.js')}}"></script>
 <script>
-  $(document).ready( function () {
-    $('#shop-keeper').DataTable();
-} );
+//   $(document).ready( function () {
+//     $('#shop-keeper').DataTable();
+// } );
 
 // $('.edit-shopkeeper').click(function(){
 //     $('#modal-edit').modal('show');

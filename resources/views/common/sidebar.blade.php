@@ -29,7 +29,7 @@
           </ul>
         </li> -->
         <li class="treeview">
-          <a href="#">
+          <a href="{!!url('admin/dashboard')!!}">
             <i class="fa fa-files-o"></i>
             <span>Dashboard</span>
           </a>
@@ -41,12 +41,14 @@
             
           </a>
         </li>
+        @if(auth()->user()->user_type == 1) 
         <li>
           <a href="{!!url('admin/create-shopkeeper')!!}">
             <i class="fa fa-th"></i> <span>Add Store Admin</span>
             
           </a>
         </li>
+        @endif
         <li>
           <a href="{!!url('admin/manage-banner')!!}">
             <i class="fa fa-th"></i> <span>Manage Banners</span>

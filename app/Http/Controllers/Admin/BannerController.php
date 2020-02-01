@@ -66,9 +66,10 @@ class BannerController extends Controller
             $imageExtension = $couponImage->getClientOriginalExtension();
             $dir = 'assets/banners/';
             $filename = 'banner'.'_'.time().'_'.date('Ymd').'.'.$imageExtension;
+            $imageUrl = env('APP_URL').'/assets/banners/'.$filename;
 
             $banner = new Banner;
-            $banner->banner_url = $filename;
+            $banner->banner_url = $imageUrl;
             $banner->active_status = 1;
             
             $request->file('bannerImage')->move($dir, $filename);

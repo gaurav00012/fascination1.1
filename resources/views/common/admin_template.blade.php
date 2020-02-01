@@ -25,9 +25,9 @@
   <link rel="stylesheet" href="{{asset('bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="{{asset('bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
-  <link rel="stylesheet" href="{{asset('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+  <!-- <link rel="stylesheet" href="{{asset('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}"> -->
 
-  <!--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
   
   <!-- bootstrap wysihtml5 - text editor -->
   <!--<link rel="stylesheet" href="{{asset('assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">-->
@@ -300,7 +300,7 @@
 <!-- datepicker -->
 <script src="{{asset('bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
 <!-- datatable -->
-<script src="{{asset('bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+ <script src="{{asset('bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <!--<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>-->
 <!-- Bootstrap WYSIHTML5 -->
@@ -320,9 +320,9 @@
 
 
 <script >
-  $(document).ready( function () {
-    $('#shopkeeper-table').DataTable();
-} );
+//   $(document).ready( function () {
+//     $('#shopkeeper-table').DataTable();
+// } );
  //$('#city-table').DataTable();
 // $('.edit-shopkeeper').click(function(){
 //     $('#modal-edit').modal('show');

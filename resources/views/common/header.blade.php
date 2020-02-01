@@ -37,7 +37,7 @@
 
                 <p>
                  {{ Auth::user()->name }} - Store Admin
-                  <small>Member since Nov. 2012</small>
+                 
                 </p>
               </li>
               <!-- Menu Body -->

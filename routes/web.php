@@ -19,9 +19,10 @@ Route::get('admin', function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::get('admin/create-shopkeeper','Admin\ShopkeeperController@create');
-	Route::get('admin/get-shopkeeper','Admin\ShopkeeperController@getallshopkeeper');
-	Route::post('admin/create-shopkeeper','Admin\ShopkeeperController@store');
+	Route::get('admin/dashboard','Admin\DashboardController@index');
+	Route::get('admin/create-shopkeeper','Admin\ShopkeeperController@create')->middleware('is_admin');
+	Route::get('admin/get-shopkeeper','Admin\ShopkeeperController@getallshopkeeper')->middleware('is_admin');
+	Route::post('admin/create-shopkeeper','Admin\ShopkeeperController@store')->middleware('is_admin');
 
 	Route::get('admin/get-coupon','Admin\PromocodeController@getallCoupon');
 
