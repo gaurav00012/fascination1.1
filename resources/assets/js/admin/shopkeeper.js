@@ -1,7 +1,7 @@
 import swal from 'sweetalert';
 window.Vue = require('vue');
 import axios from 'axios';
-var $  = require( 'jquery');
+//var $  = require( 'jquery');
 var dt = require("datatables.net");
 
 const app = new Vue({
