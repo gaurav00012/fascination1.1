@@ -55,7 +55,8 @@ class PromocodeController extends Controller
     public function store(Request $request)
     {
         //
-
+        // echo env('APP_URL').'/assets/coupons/coupon_1579545977_20200120.jpg';
+        // die();
         $this->validate($request,[
             'couponName' => 'required',
             'couponDetail' => 'required',
@@ -82,11 +83,12 @@ class PromocodeController extends Controller
             $imageExtension = $couponImage->getClientOriginalExtension();
             $dir = 'assets/coupons/';
             $filename = 'coupon'.'_'.time().'_'.date('Ymd').'.'.$imageExtension;
+            $imageUrl = env('APP_URL').'/assets/coupons/'.$filename;
 
             $coupon = new Coupon;
             $coupon->coupon_name = $couponName;
             $coupon->coupon_detail = $couponDetail;
-            $coupon->coupon_image = $filename;
+            $coupon->coupon_image = $imageUrl;
             $request->file('couponImage')->move($dir, $filename);
             $coupon->save();
 

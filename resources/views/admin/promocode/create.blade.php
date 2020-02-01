@@ -20,17 +20,17 @@ Manage Coupons
                 <div class="form-group">
                   <label for="coupon-name">Coupon Name</label>
                   <input type="text" name="coupon-name" id="coupon-name" class="form-control"  >
-                  
+                  <span v-if="CouponValidationError.couponName" class="text-danger">@{{ CouponValidationError.couponName[0] }}</span>
                 </div>
                 <div class="form-group">
                   <label for="coupon-detail">Coupon Detail</label>
                   <input type="text" name="coupon-detail" id="coupon-detail"   class="form-control"  >
-                  
+                  <span v-if="CouponValidationError.couponDetail" class="text-danger">@{{ CouponValidationError.couponDetail[0] }}</span>
                 </div>
                 <div class="form-group">
                   <label for="coupon-image">Coupon Image</label>
                   <input type="file" id="coupon-image" name="coupon-image"  class="form-control"  >
-                  
+                  <span v-if="CouponValidationError.couponImage" class="text-danger">@{{ CouponValidationError.couponImage[0] }}</span>
                 </div>
                  
               </div>
@@ -114,8 +114,11 @@ Manage Coupons
                        <td>@{{coupon.coupon_name}}</td>
                        <td>@{{coupon.coupon_detail}}</td>
                        
-                       <td><img v-bind:src="`/assets/coupons/${coupon.coupon_image}`" height="50"  width="50"></td>
-                      <td><a href="javascript:void(0)" @click="deleteCoupon(coupon.id)"><i class="fa fa-fw fa-trash"></i></a> </td>
+                       <!-- <td><img v-bind:src="`/assets/coupons/${coupon.coupon_image}`" height="50"  width="50"></td> -->
+                        <td><img v-bind:src="`${coupon.coupon_image}`" height="50"  width="50"></td>
+                      <td>
+                        <a href="javascript:void(0)" @click="deleteCoupon(coupon.id)"><i class="fa fa-fw fa-edit"></i></a>
+                        <a href="javascript:void(0)" @click="deleteCoupon(coupon.id)"><i class="fa fa-fw fa-trash"></i></a> </td>
                       </tr>
 
 

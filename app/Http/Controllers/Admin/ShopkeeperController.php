@@ -146,8 +146,5 @@ class ShopkeeperController extends Controller
         }
     }
 
-    public function tests()
-    {
-        echo 'hell world';
-    }
+    
 }

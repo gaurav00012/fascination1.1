@@ -1,6 +1,10 @@
 import swal from 'sweetalert';
 window.Vue = require('vue');
 import axios from 'axios';
+// var $  = require( 'jquery');
+// const dt = require('datatables.net')();
+ 
+// var dt = require( 'datatables.net')( window, $ );
 
 const app = new Vue({
 	el: '#coupon',
@@ -25,13 +29,13 @@ const app = new Vue({
          console.log(couponAddUrl);
          let _this = this;
          let coupontail = {};
-         // coupontail.couponName = $('#coupon-name').val();
-         // coupontail.couponDetail = $('#coupon-detail').val();
-         // coupontail.couponImage = $('#coupon-image').prop('files')[0];
+         let couponImage = $('#coupon-image').prop('files')[0] == undefined ? '' : $('#coupon-image').prop('files')[0];
+         
          let form_data = new FormData();
          form_data.append('couponName', $('#coupon-name').val());
          form_data.append('couponDetail', $('#coupon-detail').val());
-         form_data.append('couponImage',$('#coupon-image').prop('files')[0]);
+         //form_data.append('couponImage',$('#coupon-image').prop('files')[0]);
+         form_data.append('couponImage',couponImage);
          // let form_data = new FormData();
          console.log(form_data);
        axios.post(couponAddUrl,form_data)
@@ -47,8 +51,8 @@ const app = new Vue({
           }
         }).
         catch(function(error){
-           _this.shopkeeperValidationError = error.response.data.errors;
-          console.log(_this.shopkeeperValidationError);
+           _this.CouponValidationError = error.response.data.errors;
+          console.log(_this.CouponValidationError);
         });
       },
       getallCoupon()

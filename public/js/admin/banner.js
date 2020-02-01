@@ -76,8 +76,87 @@ module.exports = __webpack_require__(50);
 /***/ 50:
 /***/ (function(module, __webpack_exports__) {
 
-"use strict";
-throw new Error("Module build failed: Error: ENOENT: no such file or directory, open 'C:\\xampp\\htdocs\\blog\\resources\\assets\\js\\admin\\banner.js'");
+
+var app = new Vue({
+  el: '#banner',
+  data: {
+    CouponVal: {},
+    CouponValidationError: {},
+    allBanner: {},
+    editValidationError: {},
+    eCouponVal: {},
+    eCouponValidationError: {}
+  },
+  methods: {
+    addBannermodal: function addBannermodal() {
+      $('#addbannermodal').modal('show');
+    },
+    addBanner: function addBanner() {
+
+      var bannerAddUrl = $('#urlBanneradd').val();
+      console.log(bannerAddUrl);
+      var _this = this;
+
+      var form_data = new FormData();
+
+      form_data.append('bannerImage', $('#baner-image').prop('files')[0]);
+      // let form_data = new FormData();
+      console.log(form_data);
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post(bannerAddUrl, form_data).then(function (response) {
+        console.log(response);
+        if (response.status == 200 && response.data == 'banner_created') {
+
+          $('#addbannermodal').modal('hide');
+
+          _this.getallBanner();
+          __WEBPACK_IMPORTED_MODULE_0_sweetalert___default()("Banner Added Successfully!", "", "success");
+        }
+      }).catch(function (error) {
+        _this.shopkeeperValidationError = error.response.data.errors;
+        console.log(_this.shopkeeperValidationError);
+      });
+    },
+    getallBanner: function getallBanner() {
+      var _this = this;
+      var getAllBannerurl = $('#urlbannerget').val();
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(getAllBannerurl).then(function (response) {
+        _this.allBanner = response.data;
+      }).catch(function (error) {});
+    },
+    deleteBanner: function deleteBanner(id) {
+      var _this = this;
+      var deleteBannerUrl = $('#urlbannerdel').val();
+      __WEBPACK_IMPORTED_MODULE_0_sweetalert___default()({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this Coupon!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true
+      }).then(function (willDelete) {
+        if (willDelete) {
+          __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(deleteBannerUrl + '/' + id).then(function (resp) {
+            var respnc = resp.data;
+            if (respnc == 'bannerdeleted') {
+              //swal("Coupon deleted Successfully!", "", "success");
+              _this.getallBanner();
+              __WEBPACK_IMPORTED_MODULE_0_sweetalert___default()("Banner has been deleted!", {
+                icon: "success"
+              });
+            }
+          }).catch(function (resp) {
+            console.log(resp);
+          });
+        } else {
+          //swal("Your imaginary file is safe!");
+        }
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getallBanner();
+  },
+  beforeDestroy: function beforeDestroy() {}
+});
 
 /***/ })
 

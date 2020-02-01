@@ -1,6 +1,8 @@
 import swal from 'sweetalert';
 window.Vue = require('vue');
 import axios from 'axios';
+var $  = require( 'jquery');
+var dt = require("datatables.net");
 
 const app = new Vue({
 	el: '#shopkeeper',
@@ -25,7 +27,8 @@ const app = new Vue({
 	        axios.get(getAllshopkeeperurl)
 	        .then(function(response){
 	          _this.allshopkeeper = response.data;
-	          
+	          //$('#shopkeeper-table').DataTable();
+            setTimeout(() => $('#shopkeeper-table').DataTable(), 1000);
 
 	        }).
 	        catch(function(error){

@@ -102,7 +102,7 @@ Manage Banner
                        <td hidden>@{{banner.id}}</td>
                       
                        
-                       <td><img v-bind:src="`/assets/banners/${banner.banner_url}`" height="50"  width="50"></td>
+                       <td><img v-bind:src="`${banner.banner_url}`" height="50"  width="50"></td>
                       <td><a href="javascript:void(0)" @click="deleteBanner(banner.id)"><i class="fa fa-fw fa-trash"></i></a> </td>
                       </tr>
 
